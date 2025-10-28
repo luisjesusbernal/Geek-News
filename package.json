@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "engines": {
-    "node": ">=18"
-  },
+  "node": "18.x"
+},
   "dependencies": {
     "bcrypt": "^6.0.0",
     "better-sqlite3": "^12.4.1",
