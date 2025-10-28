@@ -4,12 +4,17 @@ const express = require('express');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
+const fs = require('fs'); // <--- AÑADIDO
 
 // Conexión a SQLite y tablas (admin seed) — ver src/db.js
 const db = require('./src/db');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Crear carpetas necesarias si no existen (para Render / Deploy)
+if (!fs.existsSync('./data')) fs.mkdirSync('./data', { recursive: true });
+if (!fs.existsSync('./public/uploads')) fs.mkdirSync('./public/uploads', { recursive: true });
 
 // ============================
 //  Configuración base
